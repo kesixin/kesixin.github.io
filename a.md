@@ -1,6 +1,6 @@
 上一篇文章已经编写了PC端的裁剪图片案例，这次是涉及移动端的头像裁剪更换，类似于微信更换头像功能。。。
 
-**案例下载：**<a href="http://download.csdn.net/download/kesixin/9951656" target="_blank">http://download.csdn.net/download/kesixin/9951656</a>
+**案例下载：**<a href="http://download.csdn.net/download/kesixin/9951656"  target="_blank">http://download.csdn.net/download/kesixin/9951656</a>
 
 思路跟PC端的案例是一样的，这里就不多说了。
 
