@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>KSX - 个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by GetTemplates.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+
+	<link href="../../favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Roboto+Mono" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="../../css/magnific-popup.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="../../js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="gtco-loader"></div>
+	
+	<div id="page">
+	<nav class="gtco-nav" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2 text-left">
+					<div id="gtco-logo"><a href="index.html">KSX<span>.</span></a></div>
+				</div>
+				<div class="col-xs-10 text-right menu-1">
+					<ul>
+						<li><a href="../../index.html" style="font-size:14px;">首页</a></li>
+						<!-- <li class="has-dropdown">
+							<a href="index.html" style="font-size:14px;">分类</a>
+							<ul class="dropdown">
+								<li><a href="#">Python</a></li>
+								<li><a href="#">Javascript</a></li>
+								<li><a href="#">HTML5/CSS3</a></li>
+								<li><a href="#">Django</a></li>
+							</ul>
+						</li>
+
+						<li><a href="category.html" style="font-size:14px;">Business</a></li>
+						<li><a href="category.html" style="font-size:14px;">Travel</a></li>
+						<li><a href="category.html" style="font-size:14px;">Design</a></li>
+						<li><a href="category.html" style="font-size:14px;">Culture</a></li> -->
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+
+	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../../images/img_7.jpg);background-position:0px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 text-left">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
+							<span class="date-post">2017-08-11</span>
+							<h1 class="mb30"><a href="#">js实现图片上传预览及进度圆圈</a></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div id="gtco-maine">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-12">
+					<article class="mt-negative">
+						<div class="text-left content-article">
+							<div class="row">
+								<div class="col-lg-8 cp-r animate-box">
+<p><a href="http://download.csdn.net/download/kesixin/9929881" target="_block">完整案例下载地址</a></p>
+
+<p>最近在做图片上传的时候，上网找了比较久还没有现成的，因此自己做了一个，实现的功能如下：</p>
+
+<p>1.去除默认的样式；</p>
+
+<p>2.使用上传可以查看上传进度(本博做的是上传的百分比，做成进度圆圈类似)；</p>
+
+<p>3.图片从本地选择上传后预览图片；</p>
+
+<p>首先是去除浏览器默认上传图片框，通过设置css样式可以简单的修改成想要的效果。</p>
+
+<p>index.html代码如下:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs xml"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span>&gt;</span><span class="css">
+        <span class="hljs-tag">body</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">text-align</span>:<span class="hljs-value"> center</span></span>;
+        <span class="hljs-rule">}</span></span>
+        <span class="hljs-class">.uploadWrap</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> auto</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">500</span>px</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">500</span>px</span></span>;
+        <span class="hljs-rule">}</span></span>
+        <span class="hljs-id">#li_idCard</span><span class="hljs-rules">{
+                <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">210</span>px</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">120</span>px</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#b3dde2</span></span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#fff</span></span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">text-align</span>:<span class="hljs-value"> center</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">line-height</span>:<span class="hljs-value"> <span class="hljs-number">120</span>px</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">30</span>px</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"> <span class="hljs-number">1</span>px solid <span class="hljs-hexcolor">#999</span></span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+                <span class="hljs-rule">}</span></span>
+        <span class="hljs-id">#IDCardFront</span><span class="hljs-rules">{
+                <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">210</span>px</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">120</span>px</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">opacity</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">right</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+                <span class="hljs-rule"><span class="hljs-attribute">cursor</span>:<span class="hljs-value"> pointer</span></span>;
+                <span class="hljs-rule">}</span></span>
+        <span class="hljs-class">.process</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">280</span>px</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">140</span>px</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">30</span>%</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">40</span>%</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> none</span></span>;
+        <span class="hljs-rule">}</span></span>
+        <span class="hljs-id">#img</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span> auto</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">margin-top</span>:<span class="hljs-value"> <span class="hljs-number">200</span>px</span></span>;
+        <span class="hljs-rule">}</span></span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'uploadWrap'</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"uploadIDcard"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"upload_box"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">'li_idCard'</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"percent"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"percent1"</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-title">canvas</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"process"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"process1"</span>&gt;</span>0%<span class="hljs-tag">&lt;/<span class="hljs-title">canvas</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"file"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"IDCardFront"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"IDCardFront"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">'img'</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">""</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"jquery.form.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></code></pre>
+
+<p>这里html代码引入外部js文件。</p>
+
+<p>js代码</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+
+    <span class="hljs-comment">//进度条渲染效果</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawProcess</span><span class="hljs-params">(id)</span> {</span>
+    <span class="hljs-keyword">var</span> text = $(<span class="hljs-string">"#"</span> + id).text();
+    <span class="hljs-keyword">var</span> process = text.substring(<span class="hljs-number">0</span>, text.length - <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">var</span> canvas = $(<span class="hljs-string">"#"</span> + id);
+    <span class="hljs-keyword">var</span> context = canvas[<span class="hljs-number">0</span>].getContext(<span class="hljs-string">'2d'</span>);
+    context.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">48</span>, <span class="hljs-number">48</span>);
+    context.beginPath();
+    context.moveTo(<span class="hljs-number">240</span>, <span class="hljs-number">240</span>);
+    context.arc(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>, <span class="hljs-number">24</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>);
+    context.closePath();
+    context.fillStyle = <span class="hljs-string">'#fff'</span>;
+    context.fill();
+    context.beginPath();
+    context.moveTo(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>);
+    context.arc(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>, <span class="hljs-number">24</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span> * process / <span class="hljs-number">100</span>, <span class="hljs-literal">false</span>);
+    context.closePath();
+    context.fillStyle = <span class="hljs-string">'rgb(234,117,96)'</span>;  <span class="hljs-comment">//圈的百分比</span>
+    context.fill();
+    context.beginPath();
+    context.moveTo(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>);
+    context.arc(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>, <span class="hljs-number">21</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>, <span class="hljs-literal">true</span>);
+    context.closePath();
+    context.fillStyle = <span class="hljs-string">'rgba(255,255,255,1)'</span>;
+    context.fill();
+    context.beginPath();
+    context.arc(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>, <span class="hljs-number">18.5</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>, <span class="hljs-literal">true</span>);
+    context.closePath();
+    context.strokeStyle = <span class="hljs-string">'#ddd'</span>;
+    context.stroke();
+    context.font = <span class="hljs-string">"bold 9pt Arial"</span>;
+    context.fillStyle = <span class="hljs-string">'rgb(234,117,96)'</span>;  <span class="hljs-comment">//百分比数字颜色</span>
+    context.textAlign = <span class="hljs-string">'center'</span>;
+    context.textBaseline = <span class="hljs-string">'middle'</span>;
+    context.moveTo(<span class="hljs-number">24</span>, <span class="hljs-number">24</span>);
+    context.fillText(text, <span class="hljs-number">24</span>, <span class="hljs-number">24</span>);
+}
+
+$(<span class="hljs-string">"#IDCardFront"</span>).change(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+
+    <span class="hljs-keyword">if</span> ($(<span class="hljs-string">"#FrontUpload"</span>).length &gt; <span class="hljs-number">0</span>) {
+
+    } <span class="hljs-keyword">else</span> {
+        $(<span class="hljs-string">"#li_idCard"</span>).wrap(<span class="hljs-string">"&lt;form id='FrontUpload' action='upload.php' method='post' enctype='multipart/form-data'&gt;&lt;/form&gt;"</span>);
+    }
+
+    $(<span class="hljs-string">"#FrontUpload"</span>).ajaxSubmit({
+
+        dataType: <span class="hljs-string">'json'</span>,
+        beforeSend: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+
+        },
+        uploadProgress: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event, position, total, percentComplete)</span> {</span>
+            $(<span class="hljs-string">'#percent1'</span>).hide();
+            $(<span class="hljs-string">'#process1'</span>).show();
+            $(<span class="hljs-string">'#process1'</span>).text(percentComplete + <span class="hljs-string">"%"</span>);
+            drawProcess(<span class="hljs-string">'process1'</span>);
+        },
+        success: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> {</span>
+            <span class="hljs-keyword">if</span> (data.result == <span class="hljs-string">'true'</span>) {
+                $(<span class="hljs-string">'#img'</span>).attr(<span class="hljs-string">'src'</span>,<span class="hljs-string">'./'</span>+data.img+<span class="hljs-string">''</span>);
+            } <span class="hljs-keyword">else</span> {
+                alert(<span class="hljs-string">'上传失败'</span>);
+            }
+        }
+    });
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+
+<p>服务器端用的是PHP</p>
+
+<p>upload.php代码：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs xml"><span class="php"><span class="hljs-preprocessor">&lt;?php</span>
+
+error_reporting(<span class="hljs-number">0</span>);<span class="hljs-comment">//禁用错误报告</span>
+
+<span class="hljs-keyword">if</span> (file_exists(<span class="hljs-string">"./"</span> . <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">"IDCardFront"</span>][<span class="hljs-string">"name"</span>])){
+        <span class="hljs-variable">$arrRet</span>=<span class="hljs-keyword">array</span>(
+            <span class="hljs-string">'result'</span>=&gt;<span class="hljs-string">'false'</span>
+        );
+}<span class="hljs-keyword">else</span>{
+        <span class="hljs-variable">$ret</span>=move_uploaded_file(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">"IDCardFront"</span>][<span class="hljs-string">"tmp_name"</span>],<span class="hljs-string">"./"</span> . <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">"IDCardFront"</span>][<span class="hljs-string">"name"</span>]);
+        <span class="hljs-keyword">if</span>(<span class="hljs-variable">$ret</span>){
+              <span class="hljs-variable">$arrRet</span>=<span class="hljs-keyword">array</span>(
+                <span class="hljs-string">'result'</span>=&gt;<span class="hljs-string">'true'</span>,
+                <span class="hljs-string">'img'</span>=&gt; <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">"IDCardFront"</span>][<span class="hljs-string">"name"</span>]
+                );
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-variable">$arrRet</span>=<span class="hljs-keyword">array</span>(
+                <span class="hljs-string">'result'</span>=&gt;<span class="hljs-string">'false'</span>
+            );
+        }
+}
+
+<span class="hljs-keyword">echo</span> json_encode(<span class="hljs-variable">$arrRet</span>);
+
+<span class="hljs-preprocessor">?&gt;</span></span></code></pre>
+
+<p>实现效果：</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/6673460-8633b6a82405b6fc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="" class="img-responsive"></p>
+								</div>
+								<div class="col-lg-4 animate-box">
+									<div class="gtco-highlight right">
+										<h4>点点滴滴</h4>
+										<p style="font-size:15px;">我們對世界所知甚少 
+我們對自己所知也甚少 
+我們對過去也是一無所知的  
+但是 我們知道 並能感受到 
+自己是否喜歡對方</p>
+									</div>
+								</div>
+							</div>
+													
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<footer id="gtco-footer" role="contentinfo" style="padding:0;">
+		<div class="container">
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						 <span style="font-size:16px;">©</span>2017 All Rights Reserved
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar -->
+	<script src="../../js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="../../js/main.js"></script>
+
+	</body>
+</html>
+

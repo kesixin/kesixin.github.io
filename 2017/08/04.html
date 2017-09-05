@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>KSX - 个人博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by GetTemplates.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+
+	<link href="../../favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Roboto+Mono" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="../../css/magnific-popup.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="../../js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="gtco-loader"></div>
+	
+	<div id="page">
+	<nav class="gtco-nav" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2 text-left">
+					<div id="gtco-logo"><a href="index.html">KSX<span>.</span></a></div>
+				</div>
+				<div class="col-xs-10 text-right menu-1">
+					<ul>
+						<li><a href="../../index.html" style="font-size:14px;">首页</a></li>
+						<!-- <li class="has-dropdown">
+							<a href="index.html" style="font-size:14px;">分类</a>
+							<ul class="dropdown">
+								<li><a href="#">Python</a></li>
+								<li><a href="#">Javascript</a></li>
+								<li><a href="#">HTML5/CSS3</a></li>
+								<li><a href="#">Django</a></li>
+							</ul>
+						</li>
+
+						<li><a href="category.html" style="font-size:14px;">Business</a></li>
+						<li><a href="category.html" style="font-size:14px;">Travel</a></li>
+						<li><a href="category.html" style="font-size:14px;">Design</a></li>
+						<li><a href="category.html" style="font-size:14px;">Culture</a></li> -->
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+
+	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(../../images/img_7.jpg);background-position:0px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 text-left">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
+							<span class="date-post">2017-08-04</span>
+							<h1 class="mb30"><a href="#">PHP利用phpExcel实现Excel数据的导入导出</a></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div id="gtco-maine">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-12">
+					<article class="mt-negative">
+						<div class="text-left content-article">
+							<div class="row">
+								<div class="col-lg-8 cp-r animate-box">
+<p><a href="http://download.csdn.net/detail/kesixin/9920920" target="_block">phpExcel包的下载地址</a></p>
+
+<p>首先先说一下，这段例程是使用在Thinkphp的开发框架上，要是使用在其他框架也是同样的方法，很多人可能不能正确的实现Excel的导入导出，问题基本上都是phpExcel的核心类引用路径出错，如果有问题大家务必要对路劲是否引用正确进行测试。</p>
+
+
+
+<h2 id="从excel表中导入数据">从Excel表中导入数据</h2>
+
+<p><strong>1.前台html页面代码如下：</strong></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs xml"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">"import"</span> <span class="hljs-attribute">enctype</span>=<span class="hljs-value">"multipart/form-data"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>导入Excel表：<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span>  <span class="hljs-attribute">type</span>=<span class="hljs-value">"file"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"file-data"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"submit"</span>  <span class="hljs-attribute">value</span>=<span class="hljs-value">"导入"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></code></pre>
+
+<p><strong>2.将phpExcel包导入到ThinkPHP\Library\Vendor目录下。</strong></p>
+
+<p><strong>3.在公共函数function.php中新建函数importExcel，代码如下：</strong></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs php"><span class="hljs-comment">/**
+ *  读取excel表数据
+ *<span class="hljs-phpdoc"> @param</span> string $filename 路径文件名
+ *<span class="hljs-phpdoc"> @param</span> string $encode 返回数据的编码 默认为utf8
+ *<span class="hljs-phpdoc"> @return</span> array $excelData 返回数组
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">importExcel</span><span class="hljs-params">(<span class="hljs-variable">$filename</span>, <span class="hljs-variable">$encode</span> = <span class="hljs-string">'utf-8'</span>)</span>
+{</span>
+    vendor(<span class="hljs-string">"PHPExcel.PHPExcel"</span>);
+    <span class="hljs-variable">$objReader</span> = PHPExcel_IOFactory::createReader(<span class="hljs-string">'Excel5'</span>);
+    <span class="hljs-variable">$objReader</span>-&gt;setReadDataOnly(<span class="hljs-keyword">true</span>);
+    <span class="hljs-variable">$objPHPExcel</span> = <span class="hljs-variable">$objReader</span>-&gt;load(<span class="hljs-variable">$filename</span>);
+    <span class="hljs-variable">$objWorksheet</span> = <span class="hljs-variable">$objPHPExcel</span>-&gt;getActiveSheet();
+
+    <span class="hljs-variable">$highestRow</span> = <span class="hljs-variable">$objWorksheet</span>-&gt;getHighestRow();
+    <span class="hljs-variable">$highestColumn</span> = <span class="hljs-variable">$objWorksheet</span>-&gt;getHighestColumn();
+    <span class="hljs-variable">$highestColumnIndex</span> = PHPExcel_Cell::columnIndexFromString(<span class="hljs-variable">$highestColumn</span>);
+
+    <span class="hljs-variable">$excelData</span> = <span class="hljs-keyword">array</span>();
+    <span class="hljs-keyword">for</span> (<span class="hljs-variable">$row</span> = <span class="hljs-number">1</span>; <span class="hljs-variable">$row</span> &lt;= <span class="hljs-variable">$highestRow</span>; <span class="hljs-variable">$row</span>++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-variable">$col</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$col</span> &lt; <span class="hljs-variable">$highestColumnIndex</span>; <span class="hljs-variable">$col</span>++) {
+            <span class="hljs-variable">$excelData</span>[<span class="hljs-variable">$row</span>][] = (string)<span class="hljs-variable">$objWorksheet</span>-&gt;getCellByColumnAndRow(<span class="hljs-variable">$col</span>, <span class="hljs-variable">$row</span>)-&gt;getValue();
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$excelData</span>;
+
+}</code></pre>
+
+<p><strong>4.在对应的php文件进行文件的处理：</strong></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs php"><span class="hljs-comment">/**
+     * 导入excel表数据
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">import</span><span class="hljs-params">()</span>
+    {</span>
+        <span class="hljs-keyword">if</span> (IS_POST) {
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">empty</span> (<span class="hljs-variable">$_FILES</span> [<span class="hljs-string">'file-data'</span>] [<span class="hljs-string">'name'</span>])) {
+                <span class="hljs-variable">$tmp_file</span> = <span class="hljs-variable">$_FILES</span> [<span class="hljs-string">'file-data'</span>] [<span class="hljs-string">'tmp_name'</span>];
+                <span class="hljs-variable">$file_types</span> = explode(<span class="hljs-string">"."</span>, <span class="hljs-variable">$_FILES</span> [<span class="hljs-string">'file-data'</span>] [<span class="hljs-string">'name'</span>]);
+                <span class="hljs-variable">$file_type</span> = <span class="hljs-variable">$file_types</span> [count(<span class="hljs-variable">$file_types</span>) - <span class="hljs-number">1</span>];
+
+                <span class="hljs-comment">/*判别是不是.xls文件，判别是不是excel文件*/</span>
+                <span class="hljs-keyword">if</span> (strtolower(<span class="hljs-variable">$file_type</span>) != <span class="hljs-string">"xls"</span>) {
+                    <span class="hljs-variable">$this</span>-&gt;error(<span class="hljs-string">'不是Excel文件，重新上传'</span>);
+                }
+                <span class="hljs-comment">/*设置上传路径*/</span>
+                <span class="hljs-variable">$savePath</span> = <span class="hljs-string">'./Public/'</span>;
+
+                <span class="hljs-comment">/*以时间来命名上传的文件*/</span>
+                <span class="hljs-variable">$str</span> = date(<span class="hljs-string">'Ymdhis'</span>);
+                <span class="hljs-variable">$file_name</span> = <span class="hljs-variable">$str</span> . <span class="hljs-string">"."</span> . <span class="hljs-variable">$file_type</span>;
+
+                <span class="hljs-comment">/*是否上传成功*/</span>
+                <span class="hljs-keyword">if</span> (!copy ( <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">'file-data'</span>][<span class="hljs-string">'tmp_name'</span>], <span class="hljs-variable">$savePath</span> . <span class="hljs-variable">$file_name</span> )) {
+                    <span class="hljs-keyword">echo</span> <span class="hljs-string">"上传失败"</span>;
+                }
+
+                <span class="hljs-comment">/*
+                 对上传的Excel数据进行处理生成编程数据,这个函数会在下面第三步的importExcel中调用执行,
+                  把Excel转化为数组并返回给$res,再进行数据库写入
+                */</span>
+                <span class="hljs-variable">$res</span> = importExcel( <span class="hljs-variable">$savePath</span> . <span class="hljs-variable">$file_name</span>);
+                var_dump(<span class="hljs-variable">$res</span>);
+
+                <span class="hljs-comment">/*写入数据库*/</span>
+                ......
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-variable">$this</span>-&gt;display();
+        }
+    }</code></pre>
+
+
+
+<h2 id="导出数据到excel表中">导出数据到Excel表中</h2>
+
+<p><strong>1.在公共函数function.php中新建函数exportExcel，代码如下：</strong></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs php"><span class="hljs-comment">/**
+ * 导出数据
+ *<span class="hljs-phpdoc"> @param</span>1 string $expTitle 文件名
+ *<span class="hljs-phpdoc"> @param</span>2 array $expCellName  列名
+ *<span class="hljs-phpdoc"> @param</span>3 array $expTableData 表数据
+ */</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exportExcel</span><span class="hljs-params">(<span class="hljs-variable">$expTitle</span>, <span class="hljs-variable">$expCellName</span>, <span class="hljs-variable">$expTableData</span>)</span>
+{</span>
+    <span class="hljs-variable">$xlsTitle</span> = iconv(<span class="hljs-string">'utf-8'</span>, <span class="hljs-string">'gb2312'</span>, <span class="hljs-variable">$expTitle</span>); <span class="hljs-comment">//文件名称</span>
+    <span class="hljs-variable">$cellNum</span> = count(<span class="hljs-variable">$expCellName</span>);
+    <span class="hljs-variable">$dataNum</span> = count(<span class="hljs-variable">$expTableData</span>);
+    vendor(<span class="hljs-string">"PHPExcel.PHPExcel"</span>);
+    <span class="hljs-variable">$objPHPExcel</span> = <span class="hljs-keyword">new</span> PHPExcel();
+    <span class="hljs-comment">//列的数目，可以根据需要添加</span>
+    <span class="hljs-variable">$cellName</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'D'</span>, <span class="hljs-string">'E'</span>, <span class="hljs-string">'F'</span>, <span class="hljs-string">'G'</span>, <span class="hljs-string">'H'</span>, <span class="hljs-string">'I'</span>, <span class="hljs-string">'J'</span>, <span class="hljs-string">'K'</span>, <span class="hljs-string">'L'</span>, <span class="hljs-string">'M'</span>, <span class="hljs-string">'N'</span>, <span class="hljs-string">'O'</span>, <span class="hljs-string">'P'</span>, <span class="hljs-string">'Q'</span>, <span class="hljs-string">'R'</span>, <span class="hljs-string">'S'</span>, <span class="hljs-string">'T'</span>, <span class="hljs-string">'U'</span>, <span class="hljs-string">'V'</span>, <span class="hljs-string">'W'</span>, <span class="hljs-string">'X'</span>, <span class="hljs-string">'Y'</span>, <span class="hljs-string">'Z'</span>,
+        <span class="hljs-string">'AA'</span>, <span class="hljs-string">'AB'</span>, <span class="hljs-string">'AC'</span>, <span class="hljs-string">'AD'</span>, <span class="hljs-string">'AE'</span>, <span class="hljs-string">'AF'</span>, <span class="hljs-string">'AG'</span>, <span class="hljs-string">'AH'</span>, <span class="hljs-string">'AI'</span>, <span class="hljs-string">'AJ'</span>, <span class="hljs-string">'AK'</span>, <span class="hljs-string">'AL'</span>, <span class="hljs-string">'AM'</span>, <span class="hljs-string">'AN'</span>, <span class="hljs-string">'AO'</span>, <span class="hljs-string">'AP'</span>, <span class="hljs-string">'AQ'</span>, <span class="hljs-string">'AR'</span>, <span class="hljs-string">'AS'</span>, <span class="hljs-string">'AT'</span>, <span class="hljs-string">'AU'</span>, <span class="hljs-string">'AV'</span>, <span class="hljs-string">'AW'</span>, <span class="hljs-string">'AX'</span>, <span class="hljs-string">'AY'</span>, <span class="hljs-string">'AZ'</span>);
+    <span class="hljs-comment">//设置字体样式</span>
+    <span class="hljs-variable">$objPHPExcel</span>-&gt;getActiveSheet()-&gt;getStyle(<span class="hljs-string">'A1:AZ1'</span>)-&gt;getFont()-&gt;setName(<span class="hljs-string">'黑体'</span>);
+    <span class="hljs-variable">$objPHPExcel</span>-&gt;getActiveSheet()-&gt;getStyle(<span class="hljs-string">'A1:AZ1'</span>)-&gt;getFont()-&gt;setSize(<span class="hljs-number">14</span>);
+<span class="hljs-comment">//    $objPHPExcel-&gt;getActiveSheet()-&gt;getStyle('A1:AZ1')-&gt;getFont()-&gt;setBold(true);</span>
+
+    <span class="hljs-comment">//$objPHPExcel-&gt;getActiveSheet(0)-&gt;mergeCells('A1:' . $cellName[$cellNum - 1] . '1'); //合并单元格</span>
+    <span class="hljs-comment">//遍历生成表第一行-&gt;每一列的名称</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$i</span> &lt; <span class="hljs-variable">$cellNum</span>; <span class="hljs-variable">$i</span>++) {
+        <span class="hljs-variable">$objPHPExcel</span>-&gt;setActiveSheetIndex(<span class="hljs-number">0</span>)-&gt;setCellValue(<span class="hljs-variable">$cellName</span>[<span class="hljs-variable">$i</span>] . <span class="hljs-string">'1'</span>, <span class="hljs-variable">$expCellName</span>[<span class="hljs-variable">$i</span>][<span class="hljs-number">1</span>]);
+    }
+    <span class="hljs-comment">//遍历填入数据</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$i</span> &lt; <span class="hljs-variable">$dataNum</span>; <span class="hljs-variable">$i</span>++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-variable">$j</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$j</span> &lt; <span class="hljs-variable">$cellNum</span>; <span class="hljs-variable">$j</span>++) {
+            <span class="hljs-variable">$objPHPExcel</span>-&gt;getActiveSheet(<span class="hljs-number">0</span>)-&gt;setCellValue(<span class="hljs-variable">$cellName</span>[<span class="hljs-variable">$j</span>] . (<span class="hljs-variable">$i</span> + <span class="hljs-number">2</span>), <span class="hljs-variable">$expTableData</span>[<span class="hljs-variable">$i</span>][<span class="hljs-variable">$expCellName</span>[<span class="hljs-variable">$j</span>][<span class="hljs-number">0</span>]]);
+        }
+    }
+
+    ob_end_clean(); <span class="hljs-comment">//清空缓存</span>
+    header(<span class="hljs-string">'Content-Type: application/vnd.ms-excel;charset=utf-8;name="'</span> . <span class="hljs-variable">$xlsTitle</span> . <span class="hljs-string">'.xls"'</span>);
+    header(<span class="hljs-string">"Content-Disposition: attachment;filename=$xlsTitle.xls"</span>);
+    header(<span class="hljs-string">'Cache-Control: max-age=0'</span>);
+    header(<span class="hljs-string">'Cache-Control: max-age=1'</span>);
+    header(<span class="hljs-string">'Expires: Mon, 26 Jul 1997 05:00:00 GMT'</span>); <span class="hljs-comment">// Date in the past</span>
+    header(<span class="hljs-string">'Last-Modified: '</span> . gmdate(<span class="hljs-string">'D, d M Y H:i:s'</span>) . <span class="hljs-string">' GMT'</span>); <span class="hljs-comment">// always modified</span>
+    header(<span class="hljs-string">'Cache-Control: cache, must-revalidate'</span>); <span class="hljs-comment">// HTTP/1.1</span>
+    header(<span class="hljs-string">'Pragma: public'</span>); <span class="hljs-comment">// HTTP/1.0</span>
+    <span class="hljs-variable">$objWriter</span> = PHPExcel_IOFactory::createWriter(<span class="hljs-variable">$objPHPExcel</span>, <span class="hljs-string">'Excel5'</span>);
+    <span class="hljs-variable">$objWriter</span>-&gt;save(<span class="hljs-string">'php://output'</span>);
+    <span class="hljs-keyword">exit</span>;
+}</code></pre>
+
+<p><strong>2.在对应的php文件进行数据的查询：</strong></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs php">    <span class="hljs-comment">/**
+     * 导出会员到excel表
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outExcel</span><span class="hljs-params">()</span>{</span>
+        <span class="hljs-variable">$xlsName</span>=<span class="hljs-string">"会员列表"</span>;
+        <span class="hljs-variable">$xlsCell</span>=<span class="hljs-keyword">array</span>(
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'nickname'</span>,<span class="hljs-string">'昵称'</span>),
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'realname'</span>,<span class="hljs-string">'姓名'</span>),
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'idcard'</span>,<span class="hljs-string">'身份证号'</span>),
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'phonenum'</span>,<span class="hljs-string">'手机号码'</span>),
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'email'</span>,<span class="hljs-string">'电子邮箱'</span>),
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'address'</span>,<span class="hljs-string">'现居地址'</span>),
+            <span class="hljs-keyword">array</span>(<span class="hljs-string">'regtime'</span>,<span class="hljs-string">'注册时间'</span>),
+        );
+        <span class="hljs-variable">$xlsData</span>=D(<span class="hljs-string">"user"</span>)-&gt;field(<span class="hljs-string">'nickname,realname,idcard,phonenum,email,address,regtime'</span>)-&gt;select();
+
+        exportExcel(<span class="hljs-variable">$xlsName</span>, <span class="hljs-variable">$xlsCell</span>, <span class="hljs-variable">$xlsData</span>);
+    }
+
+}</code></pre>
+
+<p>以上就是PHP利用phpExcel实现Excel数据导入导出的全部内容。</p>
+								</div>
+								<div class="col-lg-4 animate-box">
+									<div class="gtco-highlight right">
+										<h4>点点滴滴</h4>
+										<p style="font-size:15px;">夏季之後嚴冬來臨  青春之後是衰老  幸福之後是災禍  反之亦然  人不可能一生都健康而快樂  終將面對死亡  雖然說起來令人傷感  但人應當做好準備直面一切不可避免的  將這一切看成是必然   人要盡己所能完成自己的使命  除此以外 別無其他⋯⋯   — 安東 · 巴甫洛維奇 · 契可夫 ​​​​</p>
+									</div>
+								</div>
+							</div>
+													
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<footer id="gtco-footer" role="contentinfo" style="padding:0;">
+		<div class="container">
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						 <span style="font-size:16px;">©</span>2017 All Rights Reserved
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar -->
+	<script src="../../js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="../../js/main.js"></script>
+
+	</body>
+</html>
+
