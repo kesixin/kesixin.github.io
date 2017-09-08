@@ -1,0 +1,26 @@
+<footer>
+    <p class="ft-copyright">强仔仔 Design by Linzhiqaing 蜀ICP备11002373号-1</p>
+    <div id="tbox">
+        <div id="log_id" style="float:left;position: relative;margin-left: -400px;margin-bottom:-5px;display: none">
+            <img src="favicon.ico">
+        </div>
+        <div style="float:right;"><a id="togbook" href="#">d</a></div>
+        <div style="float:left"><a id="gotop">d</a></div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+    $("#gotop").click(function () {
+        var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;
+    });
+
+    $("#togbook").on('mouseover',function(){
+        $("#log_id").css("display","block");
+    });
+
+    $("#togbook").on('mouseout',function(){
+        $("#log_id").css("display","none");
+    });
+</script>

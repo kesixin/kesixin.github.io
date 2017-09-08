@@ -37,17 +37,8 @@
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
-		<nav class="gtco-nav" role="navigation">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-2 text-left">
-						<div id="gtco-logo"><a href="index.html">KSX<span>.</span></a></div>
-					</div>
-					<div class="col-xs-10 text-right menu-1" ng-include = "'header.html'">
-					</div>
-				</div>
+		<nav class="gtco-nav" role="navigation" ng-include = "'header.html'">
 
-			</div>
 		</nav>
 
 	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/timg2.jpg);background-position:0px;" data-stellar-background-ratio="0.5">
@@ -217,7 +208,11 @@
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
+	<script type="text/javascript">
+        $("#dr").on('mouseover',function(){
+            alert('1');
+        });
+	</script>
 	</body>
 </html>
 
