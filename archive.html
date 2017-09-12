@@ -1,10 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>KSX - 个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Website Template by GetTemplates.co" />
+    <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Roboto+Mono" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 <body>
+<div class="gtco-loader"></div>
+
+<div id="page">
+    <nav class="gtco-nav" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 text-left">
+                    <div id="gtco-logo"><a href="index.html">KSX<span>.</span></a></div>
+                </div>
+                <div class="col-xs-10 text-right menu-1">
+                    <ul>
+                        <li><a href="index.html" style="font-size:16px;font-weight: 100;font-weight: bold;">首页</a></li>
+                        <li class="active"><a href="archive.html" style="font-size:16px;font-weight: bold;">归档</a></li>
+                        <li><a href="category.html" style="font-size:16px;font-weight: bold;">分类</a></li>
+                        <li class="has-dropdown">
+                            <a style="font-size:16px;font-weight: bold;">API</a>
+                            <ul class="dropdown">
+                                <li><a href="http://itmyhome.com/git/" target="_blank">Git</a></li>
+                                <li><a href="http://itmyhome.com/progit/" target="_blank">Pro Git</a></li>
+                                <li><a href="http://itmyhome.com/jq/" target="_blank">JQuery</a></li>
+                                <li><a href="http://itmyhome.com/easyui/" target="_blank">EasyUI</a></li>
+                                <li><a href="http://itmyhome.com/bootstrap/" target="_blank">Bootstrap</a></li>
+                                <li><a href="http://itmyhome.com/markdown/" target="_blank">Markdown</a></li>
+                                <li><a href="http://itmyhome.com/front/" target="_blank">前端开发规范手册</a></li>
+                                <li><a href="http://itmyhome.com/js/" target="_blank">JavaScript</a></li>
+                                <li><a href="http://itmyhome.com/html/" target="_blank">HTML</a></li>
+                                <li><a href="http://itmyhome.com/css/" target="_blank">CSS</a></li>
+                                <li><a href="http://itmyhome.com/rgb/" target="_blank">RGB</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a style="font-size:16px;font-weight: bold;">PDF</a>
+                            <ul class="dropdown">
+                                <li><a href="http://itmyhome.com/progit-pdf/" target="_blank">Pro Git </a></li>
+                                <li><a href="http://itmyhome.com/the-definitive-guide-of-git-pdf/" target="_blank">Git权威指南</a></li>
+                                <li><a href="http://itmyhome.com/javascript-pdf/" target="_blank">JavaScript权威指南</a></li>
+                                <li><a href="http://itmyhome.com/jquery-in-action-pdf/" target="_blank">jQuery实战</a></li>
+                                <li><a href="http://itmyhome.com/mybatis-pdf/" target="_blank">MyBatis3用户指南</a></li>
+                                <li><a href="http://itmyhome.com/ibatis-pdf/" target="_blank">IBATIS2.0开发指南</a></li>
+                                <li><a href="http://itmyhome.com/html-pdf/" target="_blank">HTML精选属性</a></li>
+                                <li><a href="http://itmyhome.com/jdbc-pdf/" target="_blank">JDBC学习手册</a></li>
+                                <li><a href="http://itmyhome.com/programmer-job-hopping-pdf/" target="_blank">程序员跳槽全攻略</a></li>
+                                <li><a href="http://itmyhome.com/software-random-thoughts-pdf/" target="_blank">软件随想录</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://blog.csdn.net/kesixin" target="_blank" style="font-size:16px;font-weight: bold;">CSDN</a></li>
+                        <li><a href="http://www.jianshu.com/u/ed95b64d8305" target="_blank" style="font-size:16px;font-weight: bold;">简书</a></li>
+                        <li><a href="history.html" style="font-size:16px;font-weight: bold;">历程</a></li>
+                        <li><a href="about.html" style="font-size:16px;font-weight: bold;">关于</a></li>
+                        <!--<li><a href="javascript:" onclick="haiyixia()" title="让页面”抖“起来"><img src="/images/haiyixia.png"></a></a></li>-->
+                        <!--<li><a href="javascript:void(0);"></a></li>-->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(images/timg4.jpg);background-position:0px;" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 text-left">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                            <span class="date-post"><strong>Anonymous</strong></span>
+                            <h1 class="mb30">Nothing is impossible, anything is possible!</h1>
+                            <h2>没有不可能，一切皆有可能！</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="gtco-maine">
+        <div class="container">
+            <div class="row row-pb-md">
+                <div class="col-md-12">
+                    <article class="mt-negative">
+                        <div class="text-left content-article">
+                            <div class="row">
+                                <div class="col-lg-8 cp-r animate-box">
+                                    <h2>2017</h2>
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09</h3>
+                                    <ul class="arc-list">
+                                        <li>
+                                            2017-09-01 - <a style="color: #428bca" href="2017/09/01.html">Linux系统Apache2.4+Tomcat7.0整合配置</a>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08</h3>
+                                    <ul class="arc-list">
+                                        <li>
+                                            2017-08-31 - <a style="color: #428bca" href="2017/08/31.html">Window系统Apache2.4+Tomcat7.0整合配置</a>
+                                        </li>
+                                        <li>
+                                            2017-08-26 - <a style="color: #428bca" href="2017/08/26.html">cropper.js 实现裁剪图片并上传(移动端)</a>
+                                        </li>
+                                        <li>
+                                            2017-08-19 - <a style="color: #428bca" href="2017/08/19.html">cropper.js 实现裁剪图片并上传(PC端)</a>
+                                        </li>
+                                        <li>
+                                            2017-08-11 - <a style="color: #428bca" href="2017/08/11.html">js实现图片上传预览及进度圆圈</a>
+                                        </li>
+                                        <li>
+                                            2017-08-04 - <a style="color: #428bca" href="2017/08/04.html">PHP利用phpExcel实现Excel数据的导入导出</a>
+                                        </li>
+                                    </ul>
+
+                                    <br>
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;07</h3>
+                                    <ul class="arc-list">
+                                        <li>
+                                            2017-07-25 - <a style="color: #428bca" href="2017/07/25.html">JS全国城市三级联动</a>
+                                        </li>
+                                        <li>
+                                            2017-07-23 - <a style="color: #428bca" href="2017/07/23.html">PHP 数字转换为大写函数</a>
+                                        </li>
+                                        <li>
+                                            2017-07-23 - <a style="color: #428bca" href="2017/07/23-1.html">PHP判断是手机移动端访问还是PC端访问的函数</a>
+                                        </li>
+                                        <li>
+                                            2017-07-13 - <a style="color: #428bca" href="2017/07/13.html">PhpStorm2017版激活方法、汉化方法以及界面配置</a>
+                                        </li>
+                                        <li>
+                                            2017-07-10 - <a style="color: #428bca" href="2017/07/10.html">匠人精神：默默修伞40年，留下了10000份温暖记忆</a>
+                                        </li>
+                                        <li>
+                                            2017-07-08 - <a style="color: #428bca" href="2017/07/08.html">PHP中利用PHPMailer实现发邮件</a>
+                                        </li>
+                                        <li>
+                                            2017-07-04 - <a style="color: #428bca" href="2017/07/04.html">php使用jquery Form 实现页面无刷新上传图片，并预览图片</a>
+                                        </li>
+                                        <li>
+                                            2017-07-03 - <a style="color: #428bca" href="2017/07/03.html">一个农村女孩的独白：考大学有什么用？考过的和没考的，都要看看</a>
+                                        </li>
+                                    </ul>
+
+                                    <br>
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06</h3>
+                                    <ul class="arc-list">
+                                        <li>
+                                            2017-06-19 - <a style="color: #428bca" href="2017/06/19.html">IP、TCP和DNS与HTTP的密切关系</a>
+                                        </li>
+                                        <li>
+                                            2017-06-10 - <a style="color: #428bca" href="2017/06/10.html">ThinkPHP 解决使用uploadify 在Firefox浏览器上传图片出现HTTP 302报错</a>
+                                        </li>
+                                        <li>
+                                            2017-06-07 - <a style="color: #428bca" href="2017/06/07.html">MySQL数据库新建用户与授权方法</a>
+                                        </li>
+                                        <li>
+                                            2017-06-06 - <a style="color: #428bca" href="2017/06/06-1.html">gitbash-coding 代码仓库 代码备份 命令使用</a>
+                                        </li>
+                                        <li>
+                                            2017-06-06 - <a style="color: #428bca" href="2017/06/06.html">阿里云ECS服务器Linux环境下配置php运行环境</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="container container-left">
+                                    <div class="row">
+                                        <div class="col-md-4 hidden-xs">
+                                            <div class="sidebar well" style="text-align: center;padding: 6px;">
+                                                <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 animate-box">
+                                            <div class="gtco-highlight right">
+                                                <h3>最新文章</h3>
+                                                <ul class="arc-list">
+                                                    <li>
+                                                        <a style="color: #428bca" href="2017/09/01.html">Linux系统Apache2.4+Tomcat7.0整合配置</a>
+                                                    </li>
+                                                    <li>
+                                                        <a style="color: #428bca" href="2017/08/31.html">Window系统Apache2.4+Tomcat7.0整合配置</a>
+                                                    </li>
+                                                    <li>
+                                                        <a style="color: #428bca" href="2017/08/26.html">cropper.js 实现裁剪图片并上传(移动端)</a>
+                                                    </li>
+                                                    <li>
+                                                        <a style="color: #428bca" href="2017/08/19.html">cropper.js 实现裁剪图片并上传(PC端)</a>
+                                                    </li>
+                                                    <li>
+                                                        <a style="color: #428bca" href="2017/08/11.html">js实现图片上传预览及进度圆圈</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer id="gtco-footer" role="contentinfo" style="padding:0;">
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <span style="font-size:16px;">©</span>2017 版权所有 ICP证：<a href="http://www.miitbeian.gov.cn/" target="_block" style="color:#666666">粤ICP备17112246号</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Stellar -->
+<script src="js/jquery.stellar.min.js"></script>
+<!-- Main -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
