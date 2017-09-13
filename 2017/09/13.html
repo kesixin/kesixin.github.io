@@ -253,10 +253,11 @@ jekyll serve </code></pre>
 
                                     <p>文章参考来源：<a href="http://blog.itmyhome.com/2015/01/jekyll-installed-on-windows" target="_blank">麦田技术博客</a></p>
                                 </div>
+
                                 <div class="col-lg-4 animate-box">
                                     <div class="gtco-highlight right">
                                         <h4>点点滴滴</h4>
-                                        <p style="font-size:15px;">沒有好的團隊就開發不出好的軟件，但絕大多數的軟件開發團隊看起來就像不健全的家庭壹樣。——Jim McCarthy</p>
+                                        <p style="font-size:15px;">沒有好的團隊就開發不出好的軟件，但絕大多數的軟件開發團隊看起來就像不健全的家庭壹樣。</p>
                                     </div>
                                 </div>
                             </div>
@@ -305,19 +306,18 @@ jekyll serve </code></pre>
 <!-- Main -->
 <script src="../../js/main.js"></script>
 <script type="text/javascript">
-    window.onload = function(){
+
+    $(document).ready(function(){
+        //为超链接加上target='_blank'属性
+        $('a[href^="http"]').each(function(){
+            $(this).attr('target', '_blank');
+        });
 
         //图片响应式设计
         $("img").each(function(){
             $(this).addClass("img-responsive")
         });
         $("#cnzz_stat_icon_1264398044 img").removeClass("img-responsive");
-    }
-    $(document).ready(function(){
-        //为超链接加上target='_blank'属性
-        $('a[href^="http"]').each(function(){
-            $(this).attr('target', '_blank');
-        });
 
     });
 </script>
