@@ -1,0 +1,78 @@
+{% include header.html %}
+
+
+<div class="gtco-loader"></div>
+
+<div id="page">
+    {% include nav.html %}
+
+    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url({{ site.baseurl }}/images/timg4.jpg);background-position:0px;" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 text-left">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                            <span class="date-post"><strong>Anonymous</strong></span>
+                            <h1 class="mb30">Nothing is impossible, anything is possible!</h1>
+                            <h2>没有不可能，一切皆有可能！</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="gtco-maine">
+        <div class="container">
+            <div class="row row-pb-md">
+                <div class="col-md-12">
+                    <article class="mt-negative">
+                        <div class="text-left content-article">
+                            <div class="row">
+                                <div class="col-lg-8 cp-r animate-box">
+                                    {%for post in site.posts %}
+                                    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+                                    {% capture this_month %}{{ post.date | date: "%m" }}{% endcapture %}
+                                    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+                                    {% capture next_month %}{{ post.previous.date | date: "%m" }}{% endcapture %}
+
+                                    {% if forloop.first %}
+                                    <h2>{{ post.date | date: '%Y' }}</h2>
+                                    <h3>&nbsp;&nbsp;{{this_month}}</h3>
+                                    <ul>
+                                        {% endif %}
+
+                                        <li><a style="color: #428bca" href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%m月%d日" }} - {{ post.title }}</a></li>
+                                        {% if forloop.last %}
+                                    </ul>
+                                    {% else %}
+                                    {% if this_year != next_year %}
+                                    </ul>
+                                    <h2>{{next_year}}</h2>
+                                    <h3>&nbsp;&nbsp;{{next_month}}</h3>
+                                    <ul>
+                                        {% else %}
+                                        {% if this_month != next_month %}
+                                    </ul>
+                                    <h3>&nbsp;&nbsp;{{next_month}}</h3>
+                                    <ul>
+                                        {% endif %}
+                                        {% endif %}
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% include links-list.html %}
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include footer.html %}
+
+</div>
+{% include gototop.html %}

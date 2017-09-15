@@ -1,0 +1,21 @@
+<div class="sidebar well" style="text-align: center;padding: 6px;">
+	<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>  
+</div>
+
+<div class="sidebar well">
+    <h1>最新文章</h1>
+    <ul>
+        {% for post in site.posts limit:5 %}
+          <li><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="sidebar well">
+{% include links-list.html %}
+</div>
+
+
+<div class="sidebar well">
+{% include tag-cloud.html %}
+</div>

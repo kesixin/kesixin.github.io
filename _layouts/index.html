@@ -1,0 +1,57 @@
+{% include header.html %}
+
+<div class="gtco-loader"></div>
+
+<div id="page">
+	{% include nav.html %}
+
+	<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url({{ site.baseurl }}/images/timg2.jpg);background-position:0px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 text-left">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
+							<span class="date-post"><strong>码农 - 上班族</strong></span>
+							<h1 class="mb30">Live a healthy and happy life</h1>
+							<h2>过健康快乐的生活</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="gtco-main">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-12">
+					<ul id="gtco-post-list">
+						{% for post in site.posts limit:9 %}
+						<li class="one-third entry animate-box" data-animate-effect="fadeIn">
+							<a href="{{ site.baseurl}}{{ post.url }}">
+
+								<div class="entry-desc">
+									<h3>{{post.title}}</h3>
+									<p>{{post.summary}}...</p>
+								</div>
+							</a>
+							<a href="single.html" class="post-meta"><span class="date-posted">{{ post.date | date: "%Y-%m-%d" }}</span></a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	{% include footer.html %}
+
+</div>
+
+{% include gototop.html %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#archive").addClass(".active");
+    });
+</script>

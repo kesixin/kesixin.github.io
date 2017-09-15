@@ -1,0 +1,46 @@
+<div class="container container-left">
+    <div class="row">
+        <div class="col-md-4 hidden-xs">
+            <div class="sidebar well" style="text-align: center;padding: 6px;">
+                <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>
+            </div>
+        </div>
+        <div class="col-lg-4 animate-box">
+            <div class="gtco-highlight right">
+                <h3>最新文章</h3>
+                <ul class="arc-list">
+                    {% for post in site.posts limit:5 %}
+                    <li>
+                        <a style="color: #428bca" href="{{ site.baseurl}}{{ post.url }}">{{post.title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 animate-box">
+            <div class="gtco-highlight right">
+                <h3>友情链接</h3>
+                <ul class="arc-list">
+                    <li>
+                        <a style="color: #428bca" href="http://itmyhome.com/" target="_blank">麦田技术博客</a>
+                    </li>
+                    <li>
+                        <a style="color: #428bca" href="http://www.jianshu.com/u/e5bcc7954942" target="_blank">老王简书</a>
+                    </li>
+                    <li>
+                        <a style="color: #428bca" href="http://www.jianshu.com/users/560410f0974c" target="_blank">顽强的兜兜君简书</a>
+                    </li>
+                    <li>
+                        <a style="color: #428bca" href="http://www.jianshu.com/users/e39d27793aef" target="_blank">顺顺顺_637a简书</a>
+                    </li>
+                    <li>
+                        <a style="color: #428bca" href="http://www.jianshu.com/u/048ce41bacb1" target="_blank">老铁简书</a>
+                    </li>
+                    <li>
+                        <a style="color: #428bca" href="http://blog.csdn.net/webtoy" target="_blank">Hx_toy CSDN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
