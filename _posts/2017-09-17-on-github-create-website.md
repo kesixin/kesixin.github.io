@@ -2,7 +2,7 @@
 layout: post
 blog_id: "on-github-create-website"
 title: "域名+解析+GitHub来搭建自己的个人网站 "
-date: 2017-09-18 00:00:00 -0700
+date: 2017-09-17 00:00:00 -0700
 tags: Git
 category: Git
 summary: 文章主要介绍域名解析，使用GitHub上的开源项目来搭建一个个人博客。并不需要购买服务器，没有数据库访问，适合搭建自己的博客或者个人网站，不适合大型网站
