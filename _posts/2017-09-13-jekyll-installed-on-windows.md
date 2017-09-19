@@ -9,10 +9,10 @@ summary: jekyll是一个简单的免费的Blog生成工具,是一个静态站点
 comments: false
 ---
 
-#介绍Jekyll
+#### 介绍Jekyll
 * jekyll是一个简单的免费的Blog生成工具,是一个静态站点生成器,它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能,所以实际上可以用来编写整个网站。本篇将介绍如何在Windows下安装jekyll。
 
-#安装Ruby
+#### 安装Ruby
 * [Ruby官网下载地址](https://rubyinstaller.org/downloads/)   本次使用的版本是：rubyinstaller-2.3.3-x64.exe
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-adb62269c7b857b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -21,7 +21,7 @@ comments: false
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-35160740686a3f80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#安装DevKit
+#### 安装DevKit
 * 下载地址跟Ruby下载地址相同，选择适合操作系统的版本，我的window7是64位操作系统的，所以选择的版本是DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
 
 
@@ -41,7 +41,7 @@ comments: false
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-b0ca471116c59852.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#安装Jekyll
+#### 安装Jekyll
 * 打开命令行输入以下命令 " gem install jekyll "，如果顺利会出现如下情况,则表示正在安装,可能需要一段时间,需要下载的东西较多,也取决于你的网速。
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-b6b02e64aab708dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -50,12 +50,12 @@ comments: false
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-761d5a1da285a9de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-# 安装Python
+#### 安装Python
 * [Python官网下载地址](https://www.python.org/downloads/) ，本次使用的版本是：python-3.6.2.exe，当出现如下对话框 选中：”Add Python 3.6 to PATH”
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-035b1945acc455a7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#安装pip
+#### 安装pip
 * pip是一个Python包的安装和管理工具。会需要它的安装pygments,pygments.rb突出代码。
  [pip下载地址](https://pypi.python.org/pypi/pip)，下载后解压，然后用命令行工具进入到pip的解压目录，
 
@@ -67,7 +67,7 @@ comments: false
 
 * 设置Pygments作为语法高亮，在F:\DevKit\config.yml中添加如下：highlighter: pygments
 
-#启动Jekyll
+#### 启动Jekyll
 ```
 jekyll new myblog  
 cd myblog  

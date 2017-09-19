@@ -9,10 +9,10 @@ summary: 最近在服务器上进行了Apache和Tomcat的整合，让用户对js
 comments: false
 ---
 
-##一、安装Apache
+#### 一、安装Apache
 之前发的博文有关于安装和配置Apache服务器。
 
-##二、Tomcat的安装配置
+#### 二、Tomcat的安装配置
 
 1、下载对应的jdk,并配置java环境，我下载的版本是jdk-8u144-linux-x64.rpm。
 
@@ -70,7 +70,7 @@ export JRE_HOME=/usr/java/jdk1.8.0_144/jre
 * 如果是阿里云的ecs服务器可以配置添加安全组规则，
 
 
-##三、编译生成mod_jk.so文件
+#### 三、编译生成mod_jk.so文件
 
 1、下载tomcat-conntector压缩包，我下载的版本是tomcat-connectors-1.2.42-src.tar.gz，这个要跟安装的Apache版本匹配，我的Apache服务器版本是Apache/2.4.6。
 
@@ -105,7 +105,7 @@ export JRE_HOME=/usr/java/jdk1.8.0_144/jre
 // 做完这几步以后，你就应该有 "/usr/bin/apxs" 这个文件了。
         
 ```
-##四、整合Apache和Tomcat
+#### 四、整合Apache和Tomcat
 
 1、创建相关配置文件
 * 进入apache安装路径下的conf文件夹，创建两个文件，mod_jk.conf以及workers.properties。

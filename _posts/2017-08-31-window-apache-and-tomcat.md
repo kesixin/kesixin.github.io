@@ -9,7 +9,7 @@ summary: 最近在服务器上进行了Apache和Tomcat的整合，让用户对js
 comments: false
 ---
 
-##一、关于Apache和Tomcat
+#### 一、关于Apache和Tomcat
 
 Apache HTTP Server（简称 Apache），是 Apache 软件基金协会的一个开放源码的网页服务器，可以在 Windows、Unix、Linux 等操作系统中运行是最流行的Web服务器软件之一。Apache 反应速度快，运行效率高，但只支持HTML等静态页面（加载插件后也可支持 PHP 页面）。
 
@@ -17,7 +17,7 @@ Tomcat 是由 Apache 软件基金协会与 Sun 公司联合开发的一款Web服
 
 在相同的运行环境下，Tomcat 对静态页面的反应速度没有 Apache 灵敏，整合 Apache 与 Tomcat 能使系统运行于一个良好环境下，提高系统效率。
 
-##二、运行环境
+#### 二、运行环境
 
 运行环境：Window10系统，与Window7系统整合是一样的。
 
@@ -35,7 +35,7 @@ JDK：JDK (Java Development Kit) 是 Sun 针对Java开发员的产品，是现�
 ![](http://upload-images.jianshu.io/upload_images/6673460-9e87bcf7a13a0edd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-##三、整合 Apache+Tomcat
+#### 三、整合 Apache+Tomcat
 
 1、在 Apache、Tomcat 都能正常运行的情况下，把 mod_jk.mo 拷贝到 "D:\xampp\apache\modules" 文件夹下。
 

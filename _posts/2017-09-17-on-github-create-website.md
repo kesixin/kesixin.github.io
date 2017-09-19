@@ -9,10 +9,10 @@ summary: 文章主要介绍域名解析，使用GitHub上的开源项目来搭�
 comments: false
 ---
 
-## 摘要
+#### 摘要
 文章主要介绍域名解析，使用GitHub上的开源项目来搭建一个个人博客。并不需要购买服务器，没有数据库访问，适合搭建自己的博客或者个人网站，不适合大型网站。
 
-##购买域名
+#### 购买域名
 * 可以在万网上面注册一个自己的域名，我的是用阿里云账号在万网上面注册的域名。
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-15568b6f178089bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -24,7 +24,7 @@ comments: false
 * 选择国内的域名提供商还需要通过实名认证，选择实名认证，提交自己的身份信息，一般3-5个工作日。
 
 
-## 注册GitHub账号，并创建代码仓库
+#### 注册GitHub账号，并创建代码仓库
 * 可以使用自己的邮箱在GitHub官网注册一个账号，然后就可以开始创建自己的代码仓库了。
 
 ![](http://upload-images.jianshu.io/upload_images/6673460-10a75fc0f528a2f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
