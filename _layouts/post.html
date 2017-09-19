@@ -26,7 +26,16 @@
                         <div class="text-left content-article">
                             <div class="row">
                                 <div class="col-lg-8 cp-r animate-box">
-                                {{content}}
+                                    {{content}}
+
+                                    <div class="pagination">
+                                        {% if page.next %}
+                                        <a class="btn" style="border: 1px solid silver !important;text-decoration: none;" href="{{ site.baseurl}}{{ page.next.url }}" class="next">上一篇</a>
+                                        {% endif %}
+                                        {% if page.previous %}
+                                        <a class="btn" style="border: 1px solid silver !important;text-decoration: none;" href="{{ site.baseurl}}{{ page.previous.url }}" class="previous">下一篇</a>
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 {% include links-list.html %}
                             </div>
