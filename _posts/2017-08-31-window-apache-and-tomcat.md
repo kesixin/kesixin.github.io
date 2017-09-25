@@ -1,12 +1,12 @@
 ---
-layout: post
-blog_id: "window-apache-and-tomcat"
-title: "Window系统Apache2.4+Tomcat7.0整合配置 "
-date: 2017-08-31 00:00:00 -0700
-tags: Apache
-category: Apache
-summary: 最近在服务器上进行了Apache和Tomcat的整合，让用户对jsp等页面发起的访问可以转交给Tomcat处理，使得Apache服务器支持jsp页面的访问。本文将详细讲述在window环境下配置。
-comments: false
+   layout: post
+   blog_id: "window-apache-and-tomcat"
+   title: "Window系统Apache2.4+Tomcat7.0整合配置 "
+   date: 2017-08-31 00:00:00 -0700
+   tags: Apache
+   category: Apache
+   summary: 最近在服务器上进行了Apache和Tomcat的整合，让用户对jsp等页面发起的访问可以转交给Tomcat处理，使得Apache服务器支持jsp页面的访问。本文将详细讲述在window环境下配置。
+   comments: false
 ---
 
 #### 一、关于Apache和Tomcat
