@@ -124,7 +124,7 @@ slmgr /ato
 
 * 最有效的win10激活工具当属KMS激活工具，针对win10系统最好使用KMSAuto_Net_201来激活，KMSAuto_Net_201激活工具下载地址：
 
-[下载地址](http://download.csdn.net/download/kesixin/9994598)
+[下载地址](https://pan.baidu.com/s/1jIsvquy)（密码:wxcx）
 
 * 下面完成后，可先解压，然后运行KMSAuto Net.exe来激活
 
