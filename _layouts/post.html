@@ -28,14 +28,27 @@
                                 <div class="col-lg-8 cp-r animate-box">
                                     {{content}}
 
-                                    <div class="pagination">
-                                        {% if page.next %}
-                                        <a class="btn" style="border: 1px solid silver !important;text-decoration: none;" href="{{ site.baseurl}}{{ page.next.url }}" class="next">上一篇</a>
-                                        {% endif %}
-                                        {% if page.previous %}
-                                        <a class="btn" style="border: 1px solid silver !important;text-decoration: none;" href="{{ site.baseurl}}{{ page.previous.url }}" class="previous">下一篇</a>
-                                        {% endif %}
+                                    <div class="col-md-6">
+                                        <div class="pagination">
+                                            {% if page.next %}
+                                            <a class="btn" style="border: 1px solid silver !important;text-decoration: none;" href="{{ site.baseurl}}{{ page.next.url }}" class="next">上一篇</a>
+                                            {% endif %}
+                                            {% if page.previous %}
+                                            <a class="btn" style="border: 1px solid silver !important;text-decoration: none;" href="{{ site.baseurl}}{{ page.previous.url }}" class="previous">下一篇</a>
+                                            {% endif %}
+                                        </div>
                                     </div>
+
+                                    <div class="col-md-6 text-right" style="margin-top: 20px;">
+                                        <div class="bdsharebuttonbox">
+                                            <a id="share">分享到：</a>
+                                            <a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                            <a class="qqzone" onclick="sharetoqqzone('分享到QQ空间')" title="分享到QQ空间"></a>
+                                            <a class="sina" onclick="sharetosina('分享到weibo')" title="分享到新浪微博"></a>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                                 {% include links-list.html %}
                             </div>
@@ -65,4 +78,35 @@
 
        $("#archive").addClass("active");
     });
+
+    function sharetoqqzone (title) {
+        var uu=window.location.href;
+        var url=encodeURIComponent(uu);
+        var shareqqzonestring='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary='+title+'&url='+url;
+        window.open(shareqqzonestring,'newwindow','height=800,width=800,top=100,left=100');
+    }
+
+    function sharetosina (title) {
+        var uu=window.location.href;
+        var url=encodeURIComponent(uu);
+        var sharesinastring='http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+url+'&content=utf-8&sourceUrl='+url;
+        window.open(sharesinastring,'newwindow','height=400,width=400,top=100,left=100');
+    }
+
+    window._bd_share_config = {
+        "common" : {
+            "bdSnsKey" : {},
+            "bdText" : "",
+            "bdMini" : "2",
+            "bdUrl" : window.location.href,
+            "bdMiniList" : false,
+            "bdPic" : "images/cyfx-icon-weixin.png",
+            "bdStyle" : "0",
+        },
+        "share" : { "bdSize" : "22"}
+    };
+    with (document)
+        0[(getElementsByTagName('head')[0] || body)
+            .appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='
+            + ~(-new Date() / 36e5)];
 </script>
