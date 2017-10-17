@@ -17,7 +17,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-lg-4 animate-box">
+        <div class="col-lg-4 hidden-xs">
             <div class="gtco-highlight right">
                 <h3>友情链接</h3>
                 <ul class="arc-list">
@@ -40,6 +40,38 @@
                         <a style="color: #428bca" href="http://blog.csdn.net/webtoy" target="_blank">Hx_toy CSDN</a>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-4 hidden-xs">
+            <div class="gtco-highlight right">
+                <h3>标签云</h3>
+                <div
+                        id="wpctc_widget-2-tagcloud"
+                        class='wpctc-wpctc_widget-2    wpctc-opacity  wpctc-colorize wpctc-array'>
+                    <canvas id="wpctc_widget-2_canvas" class="tagcloud-canvas"
+                            data-tagcloud-color="#428bca"
+                            data-tagcloud-bordercolor="#428bca"
+                            data-cloud-font=null                    data-cloud-radiusx="1"                    data-cloud-radiusy="1"                    data-cloud-radiusz="1"                    data-cloud-zoom=1                 width='300'                 height='300'                >
+                    </canvas>
+                </div>
+                <div id="wpctc_widget-2_canvas_tags">
+                    <ul>
+                        {% for tag in site.tags %}
+                            <li><a href='tags.html#{{ tag[0] }}-ref' class='tag-link-96' style="font-size: 99%;color:#428bca;">{{ tag[0] }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+                <style type="text/css">
+                    .wpctc_widget-2_canvas_tags                a {
+                        color: #428bca; !important;
+                    }
+
+                    .wpctc-tag-links.wpctc-wpctc_widget-2                a:after {
+                        background-color: #428bca !important;
+                    }
+                </style>
             </div>
         </div>
     </div>
