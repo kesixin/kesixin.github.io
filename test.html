@@ -11,6 +11,7 @@
 	is_weixin();
 	function is_weixin() { 
 	    var ua = window.navigator.userAgent.toLowerCase(); 
+	    alert(ua);
 	    if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
 	        alert("微信浏览器"); 
 	    } else { 
